@@ -17,8 +17,11 @@ export class CoursesComponent {
     title = 'List of courses';
     courses;
 
-    constructor() {
-        let service = new CoursesService();
+    constructor(service: CoursesService) {
+        //let service = new CoursesService(); // Si mantenemos la inicialización del servicio aqui
+        // nos deja igual las cosas altamente acopladas y frágiles, aparte de difíciles de testear,
+        // por lo que le podemos pedir a angular que lo cree por nosotros!!!
+        // pasándola como parámetro al constructor.
         this.courses = service.getCourses();
     }
 

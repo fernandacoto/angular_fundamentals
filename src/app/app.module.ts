@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component'; //sin la extensión del archivo
+import { CoursesService } from './courses.service';
 
 
 @NgModule({
@@ -16,7 +17,10 @@ import { CourseComponent } from './course/course.component'; //sin la extensión
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    CoursesService // Esto necesita agregarse, para poder pasar la instancia como parametro en el constructor (dependency injection)
+    // cuando se registra algo aquí, angular va a crear un single instance
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
