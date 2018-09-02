@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { CourseComponent } from './course/course.component'; //sin la extensión
 import { CoursesService } from './courses.service';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
+import { SummaryPipe } from './summary.pipe';
 
 
 @NgModule({
@@ -15,10 +17,12 @@ import { AuthorsService } from './authors.service';
     AppComponent,
     CoursesComponent,
     CourseComponent,
-    AuthorsComponent // Nuevo componente, recordar importarlo, como en la línea 7
+    AuthorsComponent, // Nuevo componente, recordar importarlo, como en la línea 7
+    SummaryPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     CoursesService, // Esto necesita agregarse, para poder pasar la instancia como parametro en el constructor (dependency injection)
